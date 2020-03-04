@@ -1,0 +1,236 @@
+.main{
+  height:100vh;
+  width:100vw;
+}
+
+#nav-drawer{
+  display:none;
+}
+.contents{
+  height:calc(100% - 40px);
+  width:100%;
+  padding-top:40px;
+  overflow: scroll;
+}
+footer{
+  text-align: center;
+  }
+
+.navfont{
+  text-decoration: none;
+  color:black;
+ 
+
+}
+
+a.navfont:hover{
+  color:rgb(92, 22, 22);
+}
+.ad{
+  background: url(speed.jpg) no-repeat;
+  background-size:cover;
+  width:100vw;
+  height:200px;
+  &__explain{
+    color:white;
+    font-size:20px;
+    line-height:40px;
+    padding-left:10%;
+    padding-top:30px;
+
+  }
+}
+
+
+.header{
+  width:100%;
+  height:40px;
+  background:white;
+  border-bottom:1px solid black;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  &__left{
+    font-size:30px;
+    padding-left:30px;
+  }
+  &__right{
+    .navul{
+      display: flex;
+      padding-right:30px;
+      .navli{
+        padding-left:20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 950px){
+
+  // .videos{
+  //   height:30%;
+  //   width:45%;
+  // }
+  // .content-wrapper{
+  //   background:red;
+  //   height:50%;
+  //   width: 40%;            /* 幅指定 */
+  //   display:  inline-block;     /* インラインブロック要素にする */
+  //   vertical-align:  top;       /* 要素を上揃えにする */    /* 背景色指定 */
+  //   margin-bottom: 10px;        /* 要素同士の隙間調整 */
+  //   padding:  10px;             /* 余白指定 */
+  //   box-sizing: border-box;   
+  
+  // }
+
+  .navul{
+    display:none;
+  }
+  .navli{
+    display:none;
+  }
+
+  #nav-drawer {
+    display:block;
+    position: relative;
+  }
+  
+  /*チェックボックス等は非表示に*/
+  .nav-unshown {
+    display:none;
+  }
+  
+  /*アイコンのスペース*/
+  #nav-open {
+      display: inline-block;
+      width: 30px;
+      height: 22px;
+      vertical-align: middle;
+      padding-right:10px;
+  }
+  
+  /*ハンバーガーアイコンをCSSだけで表現*/
+  #nav-open span, #nav-open span:before, #nav-open span:after {
+      position: absolute;
+      height: 3px;/*線の太さ*/
+      width: 25px;/*長さ*/
+      border-radius: 3px;
+      background:black;
+      display: block;
+      content: '';
+      cursor: pointer;
+  }
+  #nav-open span:before {
+      bottom: -8px;
+  }
+  #nav-open span:after {
+      bottom: -16px;
+  }
+  
+  /*閉じる用の薄黒カバー*/
+  #nav-close {
+      display: none;/*はじめは隠しておく*/
+      position: fixed;
+      z-index: 99;
+      top: 0;/*全体に広がるように*/
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 0;
+      transition: .3s ease-in-out;
+  }
+  
+  /*中身*/
+  #nav-content {
+      overflow: auto;
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 9999;/*最前面に*/
+      width: 150px;/*右側に隙間を作る*/
+      max-width: 200px;/*最大幅*/
+      height: 170px;
+      background: #fff;/*背景色*/
+      transition: .3s ease-in-out;/*滑らかに表示*/
+      -webkit-transform: translateX(-100%);
+      transform: translateX(100%);/*左に隠しておく*/
+      margin-top:40px;
+  }
+
+  .navul2{
+    // background:red;
+    height:100%;
+    width:80%;
+    margin:0 auto;
+    .navli2{
+      font-size:20px;
+      padding-top:20px;
+    }
+  }
+  
+  /*チェックが入ったらもろもろ表示*/
+  #nav-input:checked ~ #nav-close {
+      display: block;/*カバーを表示*/
+      opacity: .5;
+  }
+  
+  #nav-input:checked ~ #nav-content {
+      -webkit-transform: translateX(0%);
+      transform: translateX(5%);/*中身を表示*/
+      box-shadow: 6px 0 25px rgba(0,0,0,.15);
+  }
+  
+ 
+}
+
+// .content-big-wrapper{
+//   display:flex;
+// }
+.videos{
+  height:100%;
+  width:100%;
+}
+
+.content-big-wrapper{
+  display:block;
+  justify-content: space-evenly;
+}
+.content-wrapper{
+  border:1px solid black;
+  height:50%;
+  // display:flex;
+
+  width: 43%;            /* 幅指定 */
+    display:  inline-block;     /* インラインブロック要素にする */
+    vertical-align:  top;       /* 要素を上揃えにする */    /* 背景色指定 */
+    margin-bottom: 10px;
+    margin-left: 50px;        /* 要素同士の隙間調整 */
+    padding:  10px;             /* 余白指定 */
+    box-sizing: border-box;   
+
+}
+
+.videoandtext{
+  display:flex;
+  height:100%;
+  width:100%;
+  .video{
+    height:100%;
+    width:50%;
+  }
+  .text{
+    height:100%;
+    width:50%;
+    background:gray;
+  }
+}
+
+.mokuji{
+  background:gray;
+  height:20px;
+  width:100%;
+  display:flex;
+  justify-content: space-evenly;
+}
