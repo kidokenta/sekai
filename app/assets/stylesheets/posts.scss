@@ -7,7 +7,7 @@
   display:none;
 }
 .contents{
-  height:calc(100% - 40px);
+  height:calc(100% - 39px);
   width:100%;
   padding-top:40px;
   overflow: scroll;
@@ -94,6 +94,11 @@ a.navfont:hover{
   #nav-drawer {
     display:block;
     position: relative;
+  }
+
+  #notice{
+    padding:3px;
+    color:green;
   }
   
   /*チェックボックス等は非表示に*/
@@ -194,19 +199,18 @@ a.navfont:hover{
 }
 
 .content-big-wrapper{
-  display:block;
-  justify-content: space-evenly;
+  height:50%;
+  width:90%;
+  margin:0 auto;
 }
 .content-wrapper{
   border:1px solid black;
   height:50%;
-  // display:flex;
-
-  width: 43%;            /* 幅指定 */
+  width: 48%;            /* 幅指定 */
     display:  inline-block;     /* インラインブロック要素にする */
     vertical-align:  top;       /* 要素を上揃えにする */    /* 背景色指定 */
     margin-bottom: 10px;
-    margin-left: 50px;        /* 要素同士の隙間調整 */
+    margin-left:9px;     /* 要素同士の隙間調整 */
     padding:  10px;             /* 余白指定 */
     box-sizing: border-box;   
 
@@ -223,14 +227,73 @@ a.navfont:hover{
   .text{
     height:100%;
     width:50%;
-    background:gray;
+    margin-left:5px;
+    
   }
 }
 
 .mokuji{
-  background:gray;
+  
   height:20px;
   width:100%;
   display:flex;
   justify-content: space-evenly;
+  margin:2px;
+  &__left{
+    font-size:17px;
+    color:black;
+    font-weight:bold;
+    padding:2px;
+    
+  }
+  &__right{
+    cursor: pointer;
+  }
+  .mokuji__right-in{
+    color:black;
+    font-weight:bold;
+    text-decoration: none;
+   
+    font-size:17px;
+    cursor:pointer;
+    padding:2px;
+  }
+}
+
+.username{
+  font-size:20px;
+}
+.postbody{
+  padding-top:5px;
+}
+.cog{
+ border-top:1px solid gray;
+
+}
+
+@media (max-width: 740px){
+  .content-big-wrapper{
+    height:50%;
+    width:90%;
+    margin:0 auto;
+  }
+
+  .content-wrapper{
+    border:1px solid black;
+    height:50%;
+    margin:0 auto;
+    margin-bottom: 10px;
+
+  
+    width: 100%;            /* 幅指定 */
+        /* インラインブロック要素にする */
+      vertical-align:  top;       /* 要素を上揃えにする */    /* 背景色指定 */      /* 要素同士の隙間調整 */
+      padding:  10px;             /* 余白指定 */
+      box-sizing: border-box;   
+  
+  }
+  
+
+
+
 }

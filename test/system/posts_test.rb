@@ -18,7 +18,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "Youtube url", with: @post.youtube_url
     click_on "Create Post"
 
-    assert_text "Post was successfully created"
+    assert_text "投稿が完了しました"
     click_on "Back"
   end
 
@@ -30,7 +30,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "Youtube url", with: @post.youtube_url
     click_on "Update Post"
 
-    assert_text "Post was successfully updated"
+    assert_text "投稿が更新されました"
     click_on "Back"
   end
 
@@ -40,6 +40,6 @@ class PostsTest < ApplicationSystemTestCase
       click_on "Destroy", match: :first
     end
 
-    assert_text "Post was successfully destroyed"
+    assert_text "投稿は削除されました"
   end
 end

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class = "ad">
-  <div class = "ad__explain">
+  <div class = "ad__explain"　onload="alert('ページの読み込みが完了したよ！');">
      MakeUBetterは</br>日々
      動画や本で学んだことを</br>
      記録できるサービスです
@@ -9,8 +9,8 @@
 </div>
 
 <div class = "mokuji">
-  <div class = "mokuji__left">Posts</div>
-  <div class = "mokuji_right"><%= link_to 'New Post', new_post_path %></div>
+  <div class = "mokuji__left">All Posts↓</div>
+  <div class = "mokuji__right"><%= link_to 'Make New Post', new_post_path, class: "mokuji__right-in" %></div>
 </div>
 
 <div class = "content-big-wrapper">
@@ -21,11 +21,13 @@
             <iframe class="videos"  src="https://www.youtube.com/embed/<%=post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
           </div>
           <div class = "text">
-            <%= current_user.username%>
-            <%= post.body %>
-            <%= link_to 'Show', post %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <div class = "username">:<%= current_user.username%></div>
+              <div class = "postbody"><%= post.body.truncate(70, separator: /\s/) %></div>
+              <div class = "cog">
+                <%= link_to 'Show', post %>
+                <%= link_to 'Edit', edit_post_path(post) %>
+                <%= link_to 'Destroy', post, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+              </div>
           </div>
         </div>
       </div>
