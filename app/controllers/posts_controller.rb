@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
+    
   end
 
   # GET /posts/1
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @action = Action.new
   end
 
   # GET /posts/1/edit
@@ -25,14 +27,14 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    
+
     url = params[:post][:youtube_url]
     url = url.last(11)
     @post.youtube_url = url
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: '投稿が完了しました' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -46,7 +48,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, notice: '投稿が更新されました' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -60,7 +62,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to posts_url, notice: '投稿が削除されました' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +75,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:body, :youtube_url)
+      params.require(:post).permit(:body, :youtube_url,actions_attributes:[:action,:status]).merge(user_id: current_user.id)
     end
 end

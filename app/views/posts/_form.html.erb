@@ -12,15 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="field">
     <%= form.label :youtube_url %>
     <%= form.text_field :youtube_url %>
   </div>
 
+  <%= form.fields_for :action do |action| %>
+  <div class="field">
+   <%= action.label :"アクションプラン" %>
+    <%= action.text_field :action %>
+  </div>
+
+  <div class="field">
+   <%= action.label :status %>
+    <%= action.text_field :status %>
+  </div>
+  <%end%>
+
+  
+
+
+  <div class="field">
+    <%= form.label :"この動画の簡単なまとめ" %>
+    <%= form.text_area :body %>
+  </div>
+
+  
   <div class="actions">
     <%= form.submit %>
   </div>
