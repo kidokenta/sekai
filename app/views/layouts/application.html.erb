@@ -4,6 +4,10 @@
     <title>Sekai</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="/js/summernote.css" rel="stylesheet" type="text/css">
+<script src="/js/summernote.min.js"></script>
+<script src="/public/js/lang/summernote-ja-JP.js"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
@@ -23,7 +27,7 @@
                     <ul class = "navul">
                       <li class = "navli"><%=link_to " Home",root_path, class: "navfont"%></li>
                       <% if user_signed_in? %>
-                      <li class = "navli"><%= link_to "mypage", root_path, class: "navfont" %></li>
+                      <li class = "navli"><%= link_to "mypage", user_path(current_user.id), class: "navfont" %></li>
                       <li class = "navli"><%= link_to "log out", destroy_user_session_path, method: :delete, class: "navfont"%></li>
                       <li class = "navli"><%= link_to 'New Post', new_post_path , class: "navfont"%></li>
                       <% else %>
@@ -40,7 +44,7 @@
                           <ul class = "navul2">
                             <li class = "navli2"><%=link_to "Home",root_path, class: "navfont"%></li>
                             <% if user_signed_in? %>
-                            <li class = "navli2"><%= link_to "mypage", root_path , class: "navfont"%></li>
+                            <li class = "navli2"><%= link_to "mypage", user_path(current_user.id) , class: "navfont"%></li>
                             <li class = "navli2"><%= link_to "log out", destroy_user_session_path, method: :delete, class: "navfont"%></li>
                             <li class = "navli2"><%= link_to 'New Post', new_post_path, class: "navfont" %></li>
                             <% else %>

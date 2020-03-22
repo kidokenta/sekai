@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all.order(created_at: :desc)
+    
   end
 
   # GET /posts/1
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @action = Action.new
   end
 
   # GET /posts/1/edit
@@ -73,6 +75,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:body, :youtube_url)
+      params.require(:post).permit(:body, :youtube_url,actions_attributes:[:action,:status]).merge(user_id: current_user.id)
     end
 end
